@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>UnLock</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="Layer/css/layui.css" media="all">
+    <script src="Layer/layui.js" charset="utf-8"></script>
+    <script src="Scripts/jquery-1.8.2.js" charset="utf-8"></script>
+    <link href="Layer/css/stylesheet.css" rel="stylesheet" media="all" />
+</head>
+<body>
+    <div style="width: auto; height: 150px; text-align: center;">
+        <span style="margin-top: 20px; font-size: 20px;">  
+            <img src="Images/header.png" />
+        </span>
+    </div>
+    <div style="text-align: center;">
+        <ul class="layui-nav layui-bg-green">
+            <li class="layui-nav-item"><a href="javascript:history.go(0);" style="width: 180px; font-size: 18px;">网站首页</a></li>
+            <li class="layui-nav-item"><a href="../Home.html" style="width: 180px; font-size: 16px;">新闻动态</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;" style="width: 150px; font-size: 16px;">业  务</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="../Home.html">业务展示</a></dd> 
+                </dl>
+            </li> 
+            <li class="layui-nav-item"><a href="Business/About.html" style="width: 180px; font-size: 16px;">关于我们</a></li>
+            <li class="layui-nav-item"><a href="Business/ContactWe.html" style="width: 180px; font-size: 16px;">联系我们</a></li>
+        </ul>
+        <script>
+            layui.use('element', function () {
+                var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+                //监听导航点击
+                element.on('nav(demo)', function (elem) {
+                    //console.log(elem)
+                    layer.msg(elem.text());
+                });
+            });
+
+            layui.use(['carousel', 'form'], function () {
+                var carousel = layui.carousel
+                , form = layui.form;
+
+                //图片轮播
+                carousel.render({
+                    elem: '#test10'
+                  , width: 'auto'
+                  , height: '700px'
+                  , interval: 2500
+                  , anim: 'fade'
+                });
+            });
+        </script>
+    </div>
+    <div>
+        <div class="layui-carousel layui-anim layui-anim-scale" id="test10">
+            <div carousel-item>
+                <div style="text-align: center; margin-top: 60px;"> 
+                    <img src="Images/s1.jpg" />
+                </div>
+                <div style="text-align: center; margin-top: 60px;">
+                    <img src="Images/s2.jpg">
+                </div>
+                <div style="text-align: center; margin-top: 60px;">
+                    <img src="Images/s3.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-main">
+        <ul class="site-idea">
+            <li>
+                <fieldset class="layui-elem-field layui-field-title">
+                    <legend>专业</legend>
+                    <p>永川区耀辉开锁服务部是经工商局注册 ，公安局备案的正规开锁服务公司。我们提供各种开修换锁、智能锁、汽车防盗器、开修保险柜、异型锁、防盗门、各种高、中、低档汽车钥匙配制。经营各式锁具，配制各种奇特钥匙等服务。开锁师傅全经过专业培训上岗，公安备案，安全正规！</p>
+                </fieldset>
+            </li>
+            <li>
+                <fieldset class="layui-elem-field layui-field-title">
+                    <legend>服务流程</legend>
+                    <div style="text-align:center;">
+                        <div>
+                            <span class="layui-badge layui-bg-green">1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;师傅接单&nbsp;●&nbsp;联系上门
+                        </div>
+                        <div>
+                            <span class="layui-badge layui-bg-green">2</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;确认身份&nbsp;●&nbsp;估价协商
+                        </div>
+                        <div>
+                            <span class="layui-badge layui-bg-green">3</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;完成服务&nbsp;●&nbsp;登记验收
+                        </div>
+                        <div>
+                            <span class="layui-badge layui-bg-green">4</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;款项清算&nbsp;●&nbsp;客户回馈
+                        </div>
+                    </div>
+                </fieldset>
+            </li>
+            <li>
+                <fieldset class="layui-elem-field layui-field-title">
+                    <legend>目标宗旨</legend>
+                    <p>我们致力于创建永川最好的生活服务平台，提供高质量的服务，拥有完善的服务流程，严格的登记体系，专业的锁匠师傅。 为用户提供3分钟响应、15分钟到达、24小时全天候上门服务</p>
+                </fieldset>
+            </li>
+        </ul>
+    </div>
+    <div style="width:100%;height:80px;" class="layui-bg-gray" />
+    <div style="width:100%;height:80px; text-align:center; padding-top:9px;">
+        <p style="font-size:30px;margin-top:10px"><b>业·务·参·考</b></p>
+    </div>
+    <div class="layui-main">
+        <ul class="site-idea1">
+            <li>
+                <div class="container-content">
+                    <img src="Images/kaisuo1.jpg" class="layui-circle" style="height:200px;width:220px;" />
+                    <div class="container-content-description">
+                        <p style="font-size:24px;margin-top:10px"><b>开普通门锁</b></p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="container-content">
+                    <img src="Images/kaisuo2.png" class="layui-circle" style="height:200px;width:220px;"/>
+                    <div class="container-content-description">
+                        <p style="font-size:24px;margin-top:10px"><b>开防盗门锁</b></p>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    <div class="layui-main">
+        <ul class="site-idea1">
+            <li>
+                <div class="container-content">
+                    <img src="Images/kaisuo3.jpg" class="layui-circle" style="height:200px;width:220px;" />
+                    <div class="container-content-description">
+                        <p style="font-size:24px;margin-top:10px"><b>开智能门锁</b></p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="container-content">
+                    <img src="Images/kaisuo4.jpg" class="layui-circle" style="height:200px;width:220px;" />
+                    <div class="container-content-description">
+                        <p style="font-size:24px;"><b>开汽车锁</b></p>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+    <div>
+        <div style="text-align: center">
+            <img src="http://st.jishibang.com.cn/res/jishibang/default/images/left-point.png">
+            <span class="part-title">客户评价</span>
+            <img src="http://st.jishibang.com.cn/res/jishibang/default/images/right-point.png">
+        </div>
+        <div style="width:950px;height:auto;margin-left:450px;margin-top:50px;">
+            <div class="layui-collapse">
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title"><span class="layui-badge layui-bg-green">1</span></h2>
+                    <div class="layui-colla-content layui-show">
+                        <img src="Images/1_ava020.jpg" class="layui-circle" style="height: 100px; width: 100px; margin-left: 30px;" />师傅当天来，当天修好，门锁暂时没问题了，报价也比较合理,挺值当的。
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title"><span class="layui-badge layui-bg-green">2</span></h2>
+                    <div class="layui-colla-content layui-show" style="">
+                        <img src="Images/1_ava027.jpg" class="layui-circle" style="height:100px;width:100px;margin-left:30px;" />这个上门服务真是很不错，我们家老大难问题，这次很快解决了。 师傅非常尽心尽责，解决了我大问题，非常感谢！
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title"><span class="layui-badge layui-bg-green">3</span></h2>
+                    <div class="layui-colla-content layui-show">
+                        <img src="Images/1_ava028.jpg" class="layui-circle" style="height: 100px; width: 100px; margin-left: 30px;" />师傅很专业哦，好评好评，非常好评啊！非常快，来的也快！以后如果有什么问题的话还会继续选择他们家。
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div style="width:100%;height:80px; text-align:center; padding-top:9px;">
+        <p style="font-size:30px;margin-top:10px"></p>
+    </div>
+    <div class="layui-footer footer footer-demo layui-bg-gray">
+        <div class="layui-main" style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
+            <p>
+                <a href="http://localhost:45574/Home.html">官方地址</a>
+                <a href="http://localhost:45574/Home.html" target="_blank">联系我们</a>
+                <a href="#" target="_blank">微信公众号</a>
+                友情链接：<a href="http://www.baidu.com" target="_blank">百度</a> <a href="https://www.taobao.com/" target="_blank">淘宝</a>
+            </p>
+            <p>&nbsp;© &nbsp;2017 &nbsp;LiTing &nbsp;本网站版权归龙耀辉所属&nbsp;&nbsp;</p>
+        </div>
+    </div>
+    
+</body>
+</html>

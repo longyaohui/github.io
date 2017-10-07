@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>UnLock</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../Layer/css/layui.css" media="all">
+    <script src="../Layer/layui.js" charset="utf-8"></script>
+    <script src="../Scripts/jquery-1.8.2.js" charset="utf-8"></script>
+    <style type="text/css">
+        #divcss5 {
+            margin: 0 auto;
+            border: 1px solid #000;
+            width: 300px;
+            height: 100px;
+        }
+
+        box {
+            width: 1080px;
+            height: 350px;
+            margin: 0 auto;
+            text-align: center;
+            display: block;
+            font-size: 10px;
+            float: left;
+        }
+
+        div.test1 {
+            width: 300px;
+            height: 350px;
+            border: 2px solid #ccc;
+            margin-top: 20px;
+            margin-left: 70px;
+            display: block; /*注意此处采用行内元素的方式*/
+            float: left;
+        }
+
+        div.font {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        img {
+            width: 300px;
+            height: 340px;
+        }
+    </style>
+    <script>
+        layui.use(['carousel', 'form'], function () {
+            var carousel = layui.carousel
+            , form = layui.form;
+
+            //常规轮播
+            carousel.render({
+                elem: '#test1'
+              , arrow: 'always'
+            });
+
+            //改变下时间间隔、动画类型、高度
+            carousel.render({
+                elem: '#test2'
+              , interval: 1800
+              , anim: 'fade'
+              , height: '120px'
+            });
+
+            //设定各种参数
+            var ins3 = carousel.render({
+                elem: '#test3'
+            });
+            //图片轮播
+            carousel.render({
+                elem: '#test10'
+              , width: 'auto'
+              , height: '700px'
+              , interval: 2000
+            });
+
+            //事件
+            carousel.on('change(test4)', function (res) {
+                console.log(res)
+            });
+
+            var $ = layui.$, active = {
+                set: function (othis) {
+                    var THIS = 'layui-bg-normal'
+                    , key = othis.data('key')
+                    , options = {};
+
+                    othis.css('background-color', '#5FB878').siblings().removeAttr('style');
+                    options[key] = othis.data('value');
+                    ins3.reload(options);
+                }
+            };
+
+            //监听开关
+            form.on('switch(autoplay)', function () {
+                ins3.reload({
+                    autoplay: this.checked
+                });
+            });
+
+            $('.demoSet').on('keyup', function () {
+                var value = this.value
+                , options = {};
+                if (!/^\d+$/.test(value)) return;
+
+                options[this.name] = value;
+                ins3.reload(options);
+            });
+
+            //其它示例
+            $('.demoTest .layui-btn').on('click', function () {
+                var othis = $(this), type = othis.data('type');
+                active[type] ? active[type].call(this, othis) : '';
+            });
+        });
+
+        layui.use('element', function () {
+            var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+            //监听导航点击
+            element.on('nav(demo)', function (elem) {
+                //console.log(elem)
+                layer.msg(elem.text());
+            });
+        });
+    </script>
+</head>
+<body>
+    <!--头部-->
+    <div style="width: auto; height: 150px; text-align: center;">
+        <span style="margin-top: 20px; font-size: 20px;">
+            <img src="../Images/header.png" />
+        </span>
+    </div>
+    <!--导航栏-->
+    <div style="text-align: center;">
+        <ul class="layui-nav layui-bg-green">
+            <li class="layui-nav-item"><a href="/Home.html" style="width: 180px; font-size: 18px;">网站首页</a></li>
+            <li class="layui-nav-item"><a href="News.html" style="width: 180px; font-size: 16px;">新闻动态</a></li>
+            <li class="layui-nav-item layui-this">
+                <a href="javascript:;" style="width: 150px; font-size: 16px;">业  务</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="../Home.html">业务展示</a></dd> 
+                </dl>
+            </li> 
+            <li class="layui-nav-item"><a href="About.html" style="width: 180px; font-size: 16px;">关于我们</a></li>
+            <li class="layui-nav-item"><a href="ContactWe.html" style="width: 180px; font-size: 16px;">联系我们</a></li>
+        </ul>
+        <script> 
+            function Wait() {
+                layer.open({
+                    type: 1
+                    , title: false //不显示标题栏
+                    , closeBtn: false
+                    , area: '300px;'
+                    , shade: 0.8
+                    , id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                    , btn: ['打款支持', '残忍拒绝']
+                    , moveType: 1 //拖拽模式，0或者1
+                    , content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">亲！<br><br><br>我还正在开发中 ^_^</div>'
+                    , success: function (layero) {
+                        var btn = layero.find('.layui-layer-btn');
+                        btn.css('text-align', 'center');
+                        btn.find('.layui-layer-btn0').attr({
+                            href: 'http://www.layui.com/'
+                          , target: '_blank'
+                        });
+                    }
+                });
+            }
+        </script>
+    </div>
+    <!--业务内容-->
+    <div class="layui-collapse" style="height: auto; width: 1200px; margin-left: 350px;">
+        <fieldset class="layui-elem-field">
+            <legend>业务展示</legend>
+            <div class="layui-field-box">
+                <ul id="LAY_demo1" />
+            </div>
+        </fieldset>
+        <script>
+            layui.use('flow', function () {
+                var flow = layui.flow;
+
+                flow.load({
+                    elem: '#LAY_demo1' //流加载容器
+                  , scrollElem: '#LAY_demo1' //滚动条所在元素，一般不用填，此处只是演示需要。
+                  , done: function (page, next) { //执行下一页的回调
+
+                      var lis = [];
+                      //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
+                      setTimeout(function () {
+                          $.get('/HttpHandler/Yewuzs.ashx?page=' + page, function (res, status) {
+                              //假设你的列表返回在data集合中
+
+                              layui.each(res.data, function (index, item) {
+                                  //var src = item.imgSrc;
+                                  //var img_title = item.imgTitle;
+                                  //var li_content = '<li><div class="layui-colla-item"><div class="layui-colla-content layui-show"><div class="layui-anim layui-anim-scale "><div><a href="javascript:;"><img src="' + src + '" class="img" /></a></div><div><span>' + img_title + '</span></div></div></div></div></li>';
+                                  lis.push(item);
+                              });
+                              //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
+                              //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
+                              next(lis.join(''), page < res.pages);
+                          }, "json");
+                      }, 500);
+
+                  }
+                });
+            });
+        </script>
+    </div>
+    <!--最底层-->
+    <div class="layui-footer footer footer-demo">
+        <div class="layui-main" style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
+            <p>
+                © 2017 LiTing <a href="http://www.baidu.com">官方地址</a> 本网站版权归龙耀辉所属&nbsp;&nbsp;
+                <a href="mailto:1029165301@qq.com">为我留言</a>&nbsp;&nbsp;
+                <a href="http://fly.layui.com/jie/2461.html" target="_blank">微信公众号</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
